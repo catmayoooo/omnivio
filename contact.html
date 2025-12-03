@@ -8,57 +8,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-<header class="top-nav" id="site-nav">
-  <a href="index.html" class="logo">Max Neuro</a>
-  <nav class="nav-links">
-    <a href="about.html" class="nav-link">About</a>
-    <a href="products.html" class="nav-link">Products</a>
-    <a href="contact.html" class="nav-link contact-btn">Contact</a>
-  </nav>
-</header>
 
-<main class="contact-wrapper">
-  <h2>Contact Us</h2>
-  <form id="contact-form" action="https://formspree.io/f/mgvgyjjq" method="POST">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required />
+  <header class="top-nav" id="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Max Neuro</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link contact-btn">Contact</a>
+      </nav>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </header>
 
-    <label for="email">Email</label>
-    <input type="email" name="_replyto" id="email" required />
+  <main class="contact-wrapper">
+    <h2>Contact Us</h2>
+    <form id="contact-form" action="https://formspree.io/f/mgvgyjjq" method="POST">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required />
 
-    <label for="message">Message</label>
-    <textarea name="message" id="message" rows="5" required></textarea>
+      <label for="email">Email</label>
+      <input type="email" name="_replyto" id="email" required />
 
-    <button type="submit">Send</button>
-    <div id="form-status"></div>
-  </form>
-</main>
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+      <div id="form-status"></div>
+    </form>
+  </main>
+
   <script src="script.js"></script>
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-
-      const res = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { Accept: "application/json" }
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
       });
 
-      if (res.ok) {
-        form.reset();
-        status.textContent = "✅ Thank you! Your message has been sent.";
-        status.style.color = "#8aff8a";
-      } else {
-        status.textContent = "❌ Something went wrong. Please try again later.";
-        status.style.color = "#ff6b6b";
-      }
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (res.ok) {
+          form.reset();
+          status.textContent = "✅ Thank you! Your message has been sent.";
+          status.style.color = "#8aff8a";
+        } else {
+          status.textContent = "❌ Something went wrong. Please try again later.";
+          status.style.color = "#ff6b6b";
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>

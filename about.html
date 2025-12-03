@@ -8,15 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-<header class="top-nav" id="site-nav">
-  <a href="index.html" class="logo">Max Neuro</a>
-  <nav class="nav-links">
-    <a href="about.html" class="nav-link">About</a>
-    <a href="products.html" class="nav-link">Products</a>
-    <a href="contact.html" class="nav-link contact-btn">Contact</a>
-  </nav>
-</header>
 
+  <header class="top-nav" id="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Max Neuro</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link contact-btn">Contact</a>
+      </nav>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </header>
 
   <main class="page-content about-section">
     <h2>About Max Neuro</h2>
@@ -26,9 +29,17 @@
       <p>The name "Max Neuro" stems from our mission — maximizing neuro-performance for everyone from high achievers to everyday individuals.</p>
       <p>With each product we develop and every user we support, our purpose remains the same: Empower minds. Enhance lives.</p>
     </div>
-  
   </main>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    });
+  </script>
 </body>
 </html>

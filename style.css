@@ -31,16 +31,17 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: fit-content;
   z-index: 1000;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
-  width: fit-content;
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   gap: 24px;
+  width: 100%;
 }
 
 /* Logo */
@@ -50,7 +51,7 @@ a {
   color: white;
 }
 
-/* Nav links */
+/* Nav Links (Desktop) */
 .nav-links {
   display: flex;
   align-items: center;
@@ -61,8 +62,6 @@ a {
   font-size: 14pt;
   padding: 6px 8px;
   color: white;
-  background: none;
-  border: none;
   transition: color 0.3s ease;
 }
 
@@ -70,13 +69,11 @@ a {
   color: #2317CE;
 }
 
-/* Contact Button */
 .nav-link.contact-btn {
   padding: 6px 18px;
   background-color: #2317CE;
-  color: white;
   border-radius: 999px;
-  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav-link.contact-btn:hover {
@@ -85,7 +82,7 @@ a {
   border: 1px solid #2317CE;
 }
 
-/* Hamburger menu */
+/* Hamburger Icon */
 .hamburger {
   display: none;
   font-size: 26px;
@@ -94,44 +91,14 @@ a {
   user-select: none;
 }
 
-/* Responsive Nav (Mobile) */
-@media (max-width: 768px) {
-  .top-nav {
-    width: calc(100% - 40px);
-    left: 20px;
-    right: 20px;
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(16px);
-    border-radius: 12px;
-    padding: 1rem;
-    gap: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
+/* ─── Page Layout ─── */
+.page-content {
+  padding-top: 100px;
 }
 
 /* ─── Hero Section ─── */
 .hero {
   height: 100vh;
-  background-color: #0D0D2B;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,12 +116,7 @@ a {
   color: #ccc;
 }
 
-/* ─── Layout Padding ─── */
-.page-content {
-  padding-top: 100px;
-}
-
-/* ─── Section Layout ─── */
+/* ─── Section ─── */
 .section {
   max-width: 1000px;
   margin: 3rem auto;
@@ -174,7 +136,7 @@ a {
   margin-bottom: 1.5rem;
 }
 
-/* ─── Cards Grid ─── */
+/* ─── Cards ─── */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -199,7 +161,7 @@ a {
   line-height: 1.5;
 }
 
-/* ─── Product Grid ─── */
+/* ─── Product Gallery ─── */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -245,7 +207,6 @@ a {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: white;
 }
 
 #contact-form {
@@ -295,4 +256,51 @@ a {
   font-size: 1rem;
   text-align: center;
   color: #8aff8a;
+}
+
+/* ─── Mobile Styles ─── */
+@media (max-width: 768px) {
+  .top-nav {
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    padding: 12px 16px;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #0e0e35;
+    backdrop-filter: blur(16px);
+    border-radius: 0 0 12px 12px;
+    padding: 1rem 0;
+    gap: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-link,
+  .nav-link.contact-btn {
+    width: 100%;
+    padding: 10px 0;
+  }
 }
