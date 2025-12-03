@@ -1,148 +1,244 @@
-body {
-  margin: 0;
-  padding: 2rem;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fff;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  border: 1pt solid #000;
-  border-radius: 50px;
-  background-color: #fff;
-  width: fit-content; /* NEW: shrinks nav to fit contents */
-  padding: 8px 24px;
-  margin: auto;
+/* ─── Reset / Global ─── */
+* {
   box-sizing: border-box;
-  height: 60px;
-  gap: 24px; /* spacing between logo/divider/nav group */
-}
-
-.logo {
-  font-size: 35pt;
-  font-weight: 700;
-  color: #2317CE;
-  text-decoration: none; 
-}
-
-.divider {
-  height: 40px;
-  width: 1px;
-  background-color: #ccc;
-}
-
-.nav-group {
-  display: flex;
-  align-items: center;
-  gap: 40px; /* even spacing between all nav items */
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 40px;
   margin: 0;
   padding: 0;
 }
 
-.nav-links li a {
-  text-decoration: none;
-  font-size: 20pt;
-  color: #5B5B5B;
-}
-
-.contact-btn {
-  background-color: #2317CE;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0D0D2B;
   color: white;
+  line-height: 1.5;
+}
+
+a {
   text-decoration: none;
-  padding: 6px 20px;
-  border-radius: 50px;
-  font-size: 25pt;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-  display: inline-block;
-  line-height: 1;
+  color: inherit;
 }
 
-.contact-btn:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid #2317CE;
-}
-/* Slogan section */
-.slogan {
-  text-align: center;
-  margin-top: 100px;
+/* ─── Navbar ─── */
+.top-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 999px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  width: fit-content;
 }
 
-.slogan h1 {
-  font-size: 32pt;
+/* Logo */
+.logo {
+  font-size: 24px;
   font-weight: 700;
+  color: white;
+}
+
+/* Nav Links */
+.nav-link {
+  font-size: 14pt;
+  padding: 6px 8px;
+  color: white;
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
   color: #2317CE;
 }
 
-/* About section */
-.about-section {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  align-items: flex-start;
+/* Contact Button */
+.nav-link.contact-btn {
+  padding: 6px 18px;
+  background-color: #2317CE;
+  color: white;
+  border-radius: 999px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-.about-img {
-  width: 400px;
-  height: auto;
+.nav-link.contact-btn:hover {
+  background-color: white;
+  color: #2317CE;
+  border: 1px solid #2317CE;
+}
+
+/* ─── Hero Section ─── */
+.hero {
+  height: 100vh;
+  background-color: #0D0D2B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* ─── Layout Padding ─── */
+.page-content {
+  padding-top: 100px;
+}
+
+/* ─── Section Layout ─── */
+.section {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.section.about p,
+.section.inquiry p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Cards Grid ─── */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  flex: 1;
+  min-width: 260px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
   border-radius: 12px;
 }
 
-.about-text p {
-  font-size: 14pt;
-  color: #444;
-  line-height: 1.6;
+.card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
 
-/* Contact section */
-.contact-section {
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 20px;
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-.contact-form {
+/* ─── Product Grid ─── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  height: 200px;
+  border-radius: 10px;
+}
+
+/* ─── Buttons ─── */
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: #2317CE;
+  color: white;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #3b3aff;
+}
+
+/* ─── Contact Form ─── */
+.contact-wrapper {
+  max-width: 480px;
+  margin: 180px auto 100px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: left;
+}
+
+.contact-wrapper h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+#contact-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
 }
 
-.contact-form label {
+#contact-form label {
   font-weight: 600;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  font-size: 14pt;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+#contact-form input,
+#contact-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
 }
 
-.contact-form button {
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #ccc;
+}
+
+#contact-form button {
   background-color: #2317CE;
   color: white;
   border: none;
   padding: 12px 20px;
-  font-size: 16pt;
+  font-size: 1rem;
   border-radius: 50px;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-.contact-form button:hover {
+#contact-form button:hover {
   background-color: white;
-  color: black;
+  color: #2317CE;
   border: 1px solid #2317CE;
+}
+
+#form-status {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #8aff8a;
 }
