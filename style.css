@@ -340,6 +340,7 @@ a {
   padding: 1rem;
   text-align: center;
   color: white;
+  margin-top: 4rem;
 }
 
 .product-card img {
@@ -354,4 +355,91 @@ a {
   font-size: 1rem;
   margin: 0;
 }
+/* --- About-page two-column layout & scrollspy sidebar --- */
+.layout-two-column .about-body-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rem; /* increased gap */
+  max-width: 1200px;
+  margin: auto;
+  padding: 10rem 1rem;
+}
 
+.about-sidebar {
+  flex: 0 0 220px;
+  position: sticky;
+  top: calc(20px + 60px);
+  align-self: flex-start;
+  padding-left: 1rem;
+}
+
+.about-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-sidebar li {
+  margin-bottom: 1.5rem; /* more spacing between links */
+}
+
+.about-sidebar a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.about-sidebar a.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.about-content {
+  flex: 1 1 auto;
+  padding-right: 2rem;
+}
+
+.about-content .about-section {
+  margin-bottom: 15rem;
+  text-align: left;
+}
+
+.about-content .about-section h2 {
+  font-size: 2.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-content .about-section p {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: #ddd;
+}
+
+/* --- Mobile Version --- */
+@media (max-width: 768px) {
+  .layout-two-column .about-body-wrapper {
+    flex-direction: column;
+    padding: 2rem 1.25rem;
+  }
+
+  .about-sidebar {
+    display: none; /* Hide tracker on mobile */
+  }
+
+  .about-content {
+    padding: 0;
+  }
+
+  .about-content .about-section h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .about-content .about-section p {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}
