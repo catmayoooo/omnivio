@@ -187,20 +187,53 @@ a {
 }
 
 /* ─── Product Gallery ─── */
+/* ─────────────────────────────────────────────
+   PRODUCT GRID — BIGGER, CLEANER, RESPONSIVE
+   ───────────────────────────────────────────── */
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 4rem;
-  margin-bottom: 4rem;
-  margin-left: auto;
-  margin-right: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+  margin: 4rem auto;
 }
 
+/* ─────────────────────────────────────────────
+   PRODUCT CARD — PREMIUM SIZE + PERFECT FIT
+   ───────────────────────────────────────────── */
+
 .product-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  height: 200px;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 340px;
 }
+
+/* Product image — ALWAYS fully visible */
+.product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Product title */
+.product-card p {
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+
 
 /* ─── Buttons ─── */
 .cta-btn {
@@ -340,26 +373,7 @@ a {
   margin: 2rem auto 0;
 }
 
-.product-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-  color: white;
-}
 
-.product-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 0.75rem;
-}
-
-.product-card p {
-  font-size: 1rem;
-  margin: 0;
-}
 /* --- About-page two-column layout & scrollspy sidebar --- */
 .layout-two-column .about-body-wrapper {
   display: flex;
@@ -624,33 +638,4 @@ html, body {
 /* Make navbar always overlay hero */
 .top-nav {
   z-index: 2000 !important;
-}
-
-/* ─── Products Page: Mobile Image Fix ─── */
-@media (max-width: 768px) {
-
-  /* Make grid items larger on mobile */
-  .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    gap: 2.5rem;
-  }
-
-  /* Increase card height */
-  .product-card {
-    height: auto;
-    padding: 1.25rem;
-  }
-
-  /* Show FULL image instead of cropping */
-  .product-card img {
-    height: 220px;          /* taller image area */
-    object-fit: contain;   /* 👈 FULL image visible */
-    background-color: rgba(0, 0, 0, 0.15); /* optional subtle frame */
-  }
-
-  /* Slightly larger product text */
-  .product-card p {
-    font-size: 1.05rem;
-    margin-top: 0.5rem;
-  }
 }
