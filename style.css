@@ -625,3 +625,32 @@ html, body {
 .top-nav {
   z-index: 2000 !important;
 }
+
+/* ─── Products Page: Mobile Image Fix ─── */
+@media (max-width: 768px) {
+
+  /* Make grid items larger on mobile */
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+
+  /* Increase card height */
+  .product-card {
+    height: auto;
+    padding: 1.25rem;
+  }
+
+  /* Show FULL image instead of cropping */
+  .product-card img {
+    height: 220px;          /* taller image area */
+    object-fit: contain;   /* 👈 FULL image visible */
+    background-color: rgba(0, 0, 0, 0.15); /* optional subtle frame */
+  }
+
+  /* Slightly larger product text */
+  .product-card p {
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+  }
+}
