@@ -639,3 +639,11 @@ html, body {
 .top-nav {
   z-index: 2000 !important;
 }
+
+/* ─── Fix Products heading being hidden by fixed navbar (mobile) ─── */
+@media (max-width: 768px) {
+  #products {
+    padding-top: 140px; /* pushes content below navbar */
+    margin-top: 0;
+  }
+}
