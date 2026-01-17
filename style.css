@@ -190,8 +190,8 @@ a {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 4rem;
+  margin-bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
 }
